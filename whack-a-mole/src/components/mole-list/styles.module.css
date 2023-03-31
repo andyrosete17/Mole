@@ -1,0 +1,8 @@
+.root {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(3,1fr);
+  gap: 10px;
+  max-width: 70vw;
+  cursor: url("../../assets/WAM_Hammer.png"), pointer;
+}
