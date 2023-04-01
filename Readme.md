@@ -5,7 +5,7 @@ PENDING
 ## Requirements 
 ### Install basic tools: 
 - [X] React
-- [ ] Redux
+- [X] Redux
 - [X] Testing libraries
 ### Frontend:
 - [X] Add a background
@@ -16,21 +16,22 @@ PENDING
   - [ ] Pending set time configurable
 - [X] Add mole map (3x4)
 - [ ] Render moles randomly (should it be rendered in local or calling a service???)
-  - [ ] Mock render method 
-  - [ ] Only one mole can be active at the time
-  - [ ] When hit/hide a mole other should appear
-
-### Score & LeaderBoard
-#### Score
-- [ ] Add score to the screen
-- [ ] Score should increase when hit a mole
+  - [X] Mock render method 
+  - [X] Only one mole can be active at the time
+  - [X] When hit/hide a mole other should appear
 
 #### Game 
+- [ ] Add header with name and Start button
 - [ ] Add reset game functionality
   - [ ] When click on reset, the timer should set to 0 and also the score
 - [ ] Add start game functionality
   - [ ] When click on start, the timer should start
   - [ ] Every game should take 2min
+### Score & LeaderBoard
+#### Score
+- [ ] Add score to the screen
+- [ ] Score should increase when hit a mole
+
 
 #### LeaderBoard
 - [ ] Add leader-board (think about where to display)
