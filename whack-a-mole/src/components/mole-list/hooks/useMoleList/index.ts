@@ -1,8 +1,11 @@
 import { useCallback, useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { addPoints } from "../../../../data/slices";
 
 const timeToHide = process.env.REACT_APP_TIME_HIDE_MEDIUM as string;
 
 export const useMoleList = () => {
+    const dispatch = useDispatch();
     const [randomMoleValue, setRandomMoleValue] = useState(0)
 
     const randomMole = () =>
@@ -11,6 +14,7 @@ export const useMoleList = () => {
     const moleHitHandler = useCallback(() => {
         const value = randomMole()
         setRandomMoleValue(value);
+        dispatch(addPoints());
     }, [])
 
     useEffect(() => {

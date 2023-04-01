@@ -1,7 +1,15 @@
 import { render, screen } from "@testing-library/react";
 import { MoleList } from ".";
 
+
+jest.mock('react-redux', () => ({
+    ...jest.requireActual('react-redux'),
+    useSelector: jest.fn(),
+    useDispatch: jest.fn()
+}));
+
 describe('Mole list component', () => {
+
     it('should display 12 mole elements', () => {
         render(<MoleList />);
         const images = screen.getAllByRole('img');
@@ -13,7 +21,7 @@ describe('Mole list component', () => {
         const molesHidden = screen.getAllByAltText(/mole-hide/i)
         const moleShow = screen.getByAltText(/mole-show/i)
 
-        expect(molesHidden.length).toBe(11)     
+        expect(molesHidden.length).toBe(11)
         expect(moleShow).toBeDefined()
     })
 }) 
