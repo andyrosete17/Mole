@@ -1,30 +1,17 @@
-import { useEffect, useState } from "react";
 import moleHide from '../../assets/WAM_Hole.png';
 import moleShow from '../../assets/WAM_Mole.png';
 import styles from './styles.module.css'
 
 interface IMoleProps {
     isActive: boolean;
+    handleClickMole?: () => void
 }
 
-export const Mole: React.FC<IMoleProps> = ({ isActive }) => {
-    const [isMoleVisible, setIsMoleVisible] = useState(isActive);
-
-    const hideMoleHandle = () => {
-        setIsMoleVisible(false)
-    }
-
-    useEffect(() => {
-        isActive && setTimeout(() => {
-            setIsMoleVisible(false);
-        }, 2000);
-
-    }, [isActive])
-
+export const Mole: React.FC<IMoleProps> = ({ isActive, handleClickMole }) => {
 
     return (<div className={styles.root}>
-        {isMoleVisible ?
-            <img src={moleShow} alt="mole-show" onClick={hideMoleHandle} /> :
+        {isActive ?
+            <img src={moleShow} alt="mole-show" onClick={handleClickMole} /> :
             <img src={moleHide} alt="mole-hide" />
         }
     </div>)

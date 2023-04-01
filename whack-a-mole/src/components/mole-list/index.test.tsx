@@ -6,6 +6,14 @@ describe('Mole list component', () => {
         render(<MoleList />);
         const images = screen.getAllByRole('img');
         expect(images.length).toBe(12);
-})
-   
+    })
+
+    it('should display 11 moles hide and 1 mole active', () => {
+        render(<MoleList />);
+        const molesHidden = screen.getAllByAltText(/mole-hide/i)
+        const moleShow = screen.getByAltText(/mole-show/i)
+
+        expect(molesHidden.length).toBe(11)     
+        expect(moleShow).toBeDefined()
+    })
 }) 
