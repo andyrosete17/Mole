@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './App.module.css';
-import { CountDownTimer, Header, MoleList, Score } from './components';
+import { CountDownTimer, Header, LeaderBoard, MoleList, Score } from './components';
 import { useSelector } from 'react-redux';
 
 function App() {
-  const isGameActive = useSelector((state: any) => state.game.isGameActive);
+  const isGameActive = useSelector((state: any) => state.game.gameData.isGameActive);
 
   return (
     <div className={styles.App}>
@@ -13,7 +13,7 @@ function App() {
         <CountDownTimer />
         <Score />
       </div>
-      {isGameActive && (<MoleList />)}
+      {isGameActive ? (<MoleList />) : (<LeaderBoard />)}
     </div>
   );
 }

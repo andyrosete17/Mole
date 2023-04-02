@@ -1,4 +1,5 @@
-import { gameSlice, initialGameState } from "."
+import { gameSlice } from "."
+import { initialGameState } from "./model";
 
 describe('game slice', () => {
     const initialState = initialGameState;
@@ -7,20 +8,20 @@ describe('game slice', () => {
         const newName = 'andy'
         const action = gameSlice.actions.setName(newName);
         const newState = gameSlice.reducer(initialState, action);
-        expect(newState.name).toEqual(newName)
+        expect(newState.gameData.name).toEqual(newName)
     })
 
     it('should set is game has started when setIsGameActive action is dispatched', () => {
         const isGameActive = true;
         const action = gameSlice.actions.setIsGameActive(isGameActive);
         const newState = gameSlice.reducer(initialState, action);
-        expect(newState.isGameActive).toBeTruthy();
+        expect(newState.gameData.isGameActive).toBeTruthy();
     })
 
     it('should add point when addPoints action is dispatched', () => {
         const action = gameSlice.actions.addPoints;
         const newState = gameSlice.reducer(initialState, action);
-        expect(newState.points).toEqual(10)
+        expect(newState.gameData.points).toEqual(10)
     })
 
     it('should reset state when resetGame action is dispatched', () => {

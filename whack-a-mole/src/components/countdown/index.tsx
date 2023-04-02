@@ -1,13 +1,13 @@
 import Countdown from "react-countdown"
 import styles from './styles.module.css'
 import { useDispatch, useSelector } from "react-redux";
-import { setIsGameActive } from "../../data/slices";
+import { setIsGameActive, setUserRecord } from "../../data/slices";
 
 const gameDuration = process.env.REACT_APP_GAME_TIME as string;
 
 export const CountDownTimer = () => {
 
-    const isGameActive = useSelector((state: any) => state.game.isGameActive);
+    const isGameActive = useSelector((state: any) => state.game.gameData.isGameActive);
     const dispatch = useDispatch();
 
 
@@ -17,6 +17,7 @@ export const CountDownTimer = () => {
         isGameActive ? api.start() : api.stop();
         if (completed) {
             dispatch(setIsGameActive(false))
+            dispatch(setUserRecord())
         } else {
             if (seconds < 10) {
                 seconds = `0${seconds}`

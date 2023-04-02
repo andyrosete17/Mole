@@ -15,7 +15,7 @@ export const useMoleList = () => {
         const value = randomMole()
         setRandomMoleValue(value);
         dispatch(addPoints());
-    }, [])
+    }, [dispatch])
 
     useEffect(() => {
         const interval = setInterval(() => {

@@ -1,7 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { MoleList } from ".";
 
-
 jest.mock('react-redux', () => ({
     ...jest.requireActual('react-redux'),
     useSelector: jest.fn(),

@@ -1,35 +1,30 @@
 import { createSlice } from "@reduxjs/toolkit"
-
-export interface IGameData {
-    name: string
-    points: number
-    isGameActive: boolean
-}
-
-export const initialGameState: IGameData =
-{
-    name: '',
-    points: 0,
-    isGameActive: false
-}
+import { initialGameState } from "./model";
+import { usersResponseMock } from "../../../mocks/leaderBoards";
 
 export const gameSlice = createSlice({
     initialState: initialGameState,
     name: 'game',
     reducers: {
         setName: (state, action) => {
-            state.name = action.payload;
+            state.gameData.name = action.payload;
         },
         setIsGameActive: (state, action) => {
-            state.isGameActive = action.payload;
+            state.gameData.isGameActive = action.payload;
         },
         addPoints: (state) => {
-            state.points += 10;
+            state.gameData.points += 10;
         },
         resetGame: (state) => {
-            state.points = initialGameState.points
+            state.gameData.points = initialGameState.gameData.points
+        },
+        setUserRecord: (state) => {
+            console.log('calling the service with ', state.gameData.name, state.gameData.points);
+        },
+        getLeaderBoard: (state) => {
+            state.leaderBoards = usersResponseMock
         }
     }
 })
 
-export const { setName, addPoints, resetGame, setIsGameActive } = gameSlice.actions;
+export const { setName, addPoints, resetGame, setIsGameActive, setUserRecord, getLeaderBoard } = gameSlice.actions;

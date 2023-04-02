@@ -1,19 +1,22 @@
-import { act, render, screen } from "@testing-library/react"
+import { act, screen } from "@testing-library/react"
 import { Header } from "."
 import userEvent from "@testing-library/user-event";
 import { renderWithProviders } from "../../test-utils/utils";
-import { IGameData } from "../../data/slices";
+import { IData } from "../../data/slices/game/model";
 
 describe('Header component', () => {
 
-    let preloadStateValue: IGameData;
+    let preloadStateValue: IData;
 
     beforeEach(() => {
         preloadStateValue = {
-            name: '',
-            points: 10,
-            isGameActive: false
-        }
+            leaderBoards: [],
+            gameData: {
+                name: '',
+                points: 10,
+                isGameActive: false
+            }
+        } 
     })
 
     it('should display a button with title Start', () => {
@@ -47,7 +50,7 @@ describe('Header component', () => {
     })
 
     it('should deactivate input and hide start button when game is active', () => {
-        preloadStateValue.isGameActive = true;
+        preloadStateValue.gameData.isGameActive = true;
         renderWithProviders(<Header />, { preloadedState: { game: preloadStateValue } });
         const button = screen.queryByRole('button', { name: /Start/i });
         const inputElement = screen.getByRole('textbox') as HTMLInputElement;
@@ -64,7 +67,7 @@ describe('Header component', () => {
     })
 
     it('should display reset button when game is active', () => {
-        preloadStateValue.isGameActive = true;
+        preloadStateValue.gameData.isGameActive = true;
 
         renderWithProviders(<Header />, { preloadedState: { game: preloadStateValue } });
         const button = screen.getByRole('button', { name: /Reset/i });
@@ -83,7 +86,7 @@ describe('Header component', () => {
         act(() => {
             userEvent.type(inputElement, '   ');
         });
-        expect(button).toBeDisabled();
+        expect(button).toBeDisabled(); 
     })
 
     it('input should allow max 25 characters', async () => {
@@ -96,4 +99,4 @@ describe('Header component', () => {
         });
         expect(inputElement.value).toBe('1234567890123456789012345');
     })
-})
+}) 
