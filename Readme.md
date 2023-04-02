@@ -1,6 +1,16 @@
 # Whack a mole
 ## How to run the app
-PENDING
+### Install dependencies
+Once you are in the project root (whack-a-mole folder)
+- Server
+  - navigate to server folder (```cd server```)
+  - Run a ```npm i```
+- Client
+  -  Run a ```npm i```
+- Run the application (```npm start```)
+  - You should be able to see the client running on port 3006
+  - You should be able to see the server running on port 3000
+
 
 ## Requirements 
 ### Install basic tools: 
@@ -34,14 +44,18 @@ PENDING
 
 
 #### LeaderBoard
-- [ ] Add leader-board (think about where to display)
-  - [ ] Leader-board display player name (max length ??) and score
-- [ ] Show top 10 players ordered by max points
+- [x] Add leader-board (think about where to display)
+  - [x] Leader-board display player name (max length ??) and score
+- [x] Show top 10 players ordered by max points
 
 ### Backend:
 Should we get the mole random render from the server???
+- [x] Added server project with mocks endpoints (no database persistance, used a json file)
 - [ ] When app load:
   - [ ] Load leaderBoard
 - [ ] When a game end: 
-  - [ ] Save game record
+  - [x] Save game record
   - [ ] Update LeaderBoard 
+- [ ] Add service layer integration
+  - [ ] NTH maybe change the basic implementation to Graphql
+  - [ ] NTH maybe change current implementation to a microfrontend one.

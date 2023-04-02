@@ -1,0 +1,14 @@
+{
+  "name": "whack-mole-api",
+  "version": "1.0.0",
+  "description": "Whack mole API",
+  "main": "index.js",
+  "scripts": {
+    "mock-server": "json-server --routes ./config/routes.json --watch mock-data/leaderboard-data.json --middlewares ./config/leaderboard.middleware.js --no-delete-cascade"
+  },
+  "author": "Andy",
+  "license": "MIT",
+  "dependencies": {
+    "json-server": "^0.16.1"
+  }
+}

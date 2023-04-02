@@ -1,0 +1,59 @@
+{
+  "leaderboard": [
+    {
+      "id": "1",
+      "name": "denise",
+      "points": 160
+    },
+    {
+      "id": "2",
+      "name": "mike",
+      "points": 200
+    },
+    {
+      "id": "3",
+      "name": "robert",
+      "points": 120
+    },
+    {
+      "id": "4",
+      "name": "susan",
+      "points": 50
+    },
+    {
+      "id": "5",
+      "name": "steph",
+      "points": 140
+    },
+    {
+      "id": "6",
+      "name": "stuart",
+      "points": 60
+    },
+    {
+      "id": "7",
+      "name": "julia",
+      "points": 80
+    },
+    {
+      "id": "8",
+      "name": "val",
+      "points": 150
+    },
+    {
+      "id": "9",
+      "name": "peter",
+      "points": 20
+    },
+    {
+      "id": "10",
+      "name": "duncan",
+      "points": 100
+    },
+    {
+      "id": "11",
+      "name": "jhon doe",
+      "points": 10
+    }
+  ]
+}
