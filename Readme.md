@@ -19,7 +19,7 @@ Once you are in the project root (whack-a-mole folder)
 - [X] Testing libraries
 ### Frontend:
 - [X] Add a background
-  - [ ] Pending set custom cursor (configure but not working)
+  - [ ] Pending set custom cursor (configured but not working)
 - [X] Create mole component
 - [X] Add mole functionality (if it's active, when hit should hide)
 - [X] Once a mole is active should deactivated when pass some time (reference 2 seconds)
@@ -63,3 +63,4 @@ Should we get the mole random render from the server???
   - [ ] Finish unit tests to 3rd party libraries like countdown
   - [ ] Add unit test to the service
   - [ ] Add integration tests with cypress
+  - [ ] Use database persistance (postgresql)

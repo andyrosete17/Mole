@@ -4,7 +4,7 @@ export const apiUrl = {
 
 export const gameDefaults = {
     moleTime: 700,
-    gameTime: 6000
+    gameTime: 120000
 }
 
 export const fetchStatus = {
