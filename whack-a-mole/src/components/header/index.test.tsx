@@ -2,7 +2,8 @@ import { act, screen } from "@testing-library/react"
 import { Header } from "."
 import userEvent from "@testing-library/user-event";
 import { renderWithProviders } from "../../test-utils/utils";
-import { IData } from "../../data/slices/game/model";
+import { IData } from "../../models";
+import { fetchStatus } from "../../constants";
 
 describe('Header component', () => {
 
@@ -14,9 +15,10 @@ describe('Header component', () => {
             gameData: {
                 name: '',
                 points: 10,
-                isGameActive: false
-            }
-        } 
+                isGameActive: false,
+            },
+            fetchStatus: fetchStatus.Success
+        }
     })
 
     it('should display a button with title Start', () => {
@@ -86,7 +88,7 @@ describe('Header component', () => {
         act(() => {
             userEvent.type(inputElement, '   ');
         });
-        expect(button).toBeDisabled(); 
+        expect(button).toBeDisabled();
     })
 
     it('input should allow max 25 characters', async () => {

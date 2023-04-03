@@ -1,19 +1,17 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getLeaderBoard } from "../../data/slices";
-import { IUserRecord } from "../../data/slices/game/model";
 import styles from './styles.module.css';
+import { IUserRecord } from "../../models";
+import { fetchLeaderboard } from "../../services/leader-board";
+import { ThunkDispatch } from "@reduxjs/toolkit";
 
 
 export const LeaderBoard: React.FC = () => {
-    const list = [{ name: 'andy', point: 10 }, { name: 'andy', point: 120 }]
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
     const leaderBoards: IUserRecord[] = useSelector((state: any) => state.game.leaderBoards)
-
     useEffect(() => {
-        dispatch(getLeaderBoard())
+        dispatch(fetchLeaderboard())
     }, [dispatch])
-
 
     return (
         <div className={styles.root}>
@@ -24,7 +22,7 @@ export const LeaderBoard: React.FC = () => {
                         <span className={styles.spanTitle}>Player</span>
                         <span className={styles.spanContent}>Score</span>
                     </li>
-                    {[...leaderBoards].sort((x, y) => y.points - x.points).slice(0, 10).map((member, i) =>
+                    {leaderBoards.map((member, i) =>
                         <li key={`${member.name}-${i}`} className={styles.recordRow}>
                             <span className={styles.spanTitle}>{`${i + 1}-${member.name}`}</span>
                             <span className={styles.spanContent}>{member.points}</span>

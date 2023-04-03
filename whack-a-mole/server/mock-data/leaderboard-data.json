@@ -28,7 +28,7 @@
     {
       "id": "6",
       "name": "stuart",
-      "points": 60
+      "points": 20
     },
     {
       "id": "7",
@@ -46,14 +46,19 @@
       "points": 20
     },
     {
-      "id": "10",
-      "name": "duncan",
-      "points": 100
+      "name": "rwarar",
+      "points": 30,
+      "id": "8ejtLL1"
     },
     {
-      "id": "11",
-      "name": "jhon doe",
-      "points": 10
+      "name": "rwarar",
+      "points": 10,
+      "id": "MF1MHUp"
+    },
+    {
+      "name": "ttt",
+      "points": 10,
+      "id": "s4q7zH9"
     }
   ]
 }

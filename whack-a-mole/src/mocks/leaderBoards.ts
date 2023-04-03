@@ -1,4 +1,4 @@
-import { IUserRecord } from "../data/slices/game/model";
+import { IUserRecord } from "../models";
 
 export const usersResponseMock: IUserRecord[] = [
     {

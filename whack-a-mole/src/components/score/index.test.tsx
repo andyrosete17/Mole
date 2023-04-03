@@ -1,7 +1,8 @@
 import { screen } from "@testing-library/react";
 import { Score } from ".";
 import { renderWithProviders } from "../../test-utils/utils";
-import { IData } from "../../data/slices/game/model";
+import { IData } from "../../models";
+import { fetchStatus } from "../../constants";
 
 describe('Score component', () => {
     let preloadStateValue: IData;
@@ -11,10 +12,11 @@ describe('Score component', () => {
             leaderBoards: [],
             gameData: {
                 name: '',
-                points: 10, 
+                points: 10,
                 isGameActive: false
-            }
-        } 
+            },
+            fetchStatus: fetchStatus.Success
+        }
     })
 
     it('should display game selector points value', () => {

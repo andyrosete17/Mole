@@ -31,7 +31,7 @@ describe('LeaderBoard component', () => {
             render(<LeaderBoard />)
 
             const items = screen.getAllByRole('listitem');
-            expect(items).toHaveLength(11);
+            expect(items.length).toBeGreaterThan(10);
         })
     })
 })

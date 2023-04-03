@@ -1,5 +1,6 @@
 import { gameSlice } from "."
-import { initialGameState } from "./model";
+import { initialGameState } from "../../../models";
+import { fetchLeaderboard } from "../../../services/leader-board";
 
 describe('game slice', () => {
     const initialState = initialGameState;
@@ -29,4 +30,55 @@ describe('game slice', () => {
         const newState = gameSlice.reducer(initialState, action);
         expect(newState).toEqual(initialState)
     })
-})
+
+    it('should return fetchLeaderboard payload whe action is fullfiled', () => {
+        const data = [
+            {
+                "id": "1",
+                "name": "denise",
+                "points": 160
+            },
+            {
+                "id": "2",
+                "name": "mike",
+                "points": 200
+            },
+            {
+                "id": "3",
+                "name": "robert",
+                "points": 120
+            },
+            {
+                "id": "4",
+                "name": "susan",
+                "points": 50
+            }];
+
+        const action = {
+            type: fetchLeaderboard.fulfilled,
+            payload: data,
+        };
+        const newState = gameSlice.reducer(initialState, action);
+        expect(newState.leaderBoards).toEqual([
+            { name: 'mike', points: 200 },
+            { name: 'denise', points: 160 },
+            { name: 'robert', points: 120 },
+            { name: 'susan', points: 50 }
+        ])
+    })
+
+    it('should return fetchLeaderboard payload with max 10 rows whe action is fullfiled', () => {
+        const data = Array(12).fill({
+            "id": "1",
+            "name": "denise",
+            "points": 160
+        });
+
+        const action = {
+            type: fetchLeaderboard.fulfilled,
+            payload: data,
+        };
+        const newState = gameSlice.reducer(initialState, action);
+        expect(newState.leaderBoards.length).toEqual(10)
+    })
+}) 
